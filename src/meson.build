@@ -114,14 +114,19 @@ endforeach
 src_inc = include_directories('.')
 
 libabc = library('abc', sources,
+	c_args: defs,
+	cpp_args: defs,
 	dependencies: dependencies,
 	include_directories: src_inc)
 libabc_dep = declare_dependency(
+	compile_args: defs,
 	link_with: [libabc],
 	dependencies: dependencies,
 	include_directories: include_directories('.', is_system: true))
 
 executable('abc', main_sources,
+	c_args: defs,
+	cpp_args: defs,
 	link_with: [libabc],
 	dependencies: dependencies,
 	include_directories: src_inc)

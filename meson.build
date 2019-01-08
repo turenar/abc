@@ -1,5 +1,5 @@
-#project('abc', ['c', 'cpp'],
-#	default_options: ['warning_level=1', 'cpp_std=c++03'])
+project('abc', ['c', 'cpp'],
+	default_options: ['warning_level=1', 'cpp_std=c++03'])
 
 cxx_compiler = meson.get_compiler('c')
 
@@ -18,41 +18,36 @@ sizeof_voidp = cxx_compiler.sizeof('void*')
 sizeof_long = cxx_compiler.sizeof('long')
 sizeof_int = cxx_compiler.sizeof('int')
 
+defs = []
+
 if sizeof_voidp == 8
-	add_project_arguments('-DLIN64', language: ['c', 'cpp'])
+	defs += ['-DLIN64']
 else
-	add_project_arguments('-DLIN', language: ['c', 'cpp'])
+	defs += ['-DLIN']
 endif
-add_project_arguments(
+defs += [
 	'-DSIZEOF_VOID_P=' + sizeof_voidp.to_string(),
 	'-DSIZEOF_LONG=' + sizeof_long.to_string(),
-	'-DSIZEOF_INT=' + sizeof_int.to_string(),
-	language: ['c', 'cpp'])
+	'-DSIZEOF_INT=' + sizeof_int.to_string()]
 
 if get_option('namespace') != ''
 	add_project_arguments(
 		'-x', 'c++',
-		'-DABC_NAMESPACE=' + get_option('namespace'),
 		language: ['c', 'cpp'])
+	defs += ['-DABC_NAMESPACE=' + get_option('namespace')]
 endif
 
 if get_option('readline')
-	add_project_arguments(
-		'-DABC_USE_READLINE',
-		language: ['c', 'cpp'])
+	defs += ['-DABC_USE_READLINE']
 	dependencies += [ cxx_compiler.find_library('readline') ]
 endif
 
 if get_option('pthreads')
-	add_project_arguments(
-		'-DABC_USE_PTHREADS',
-		language: ['c', 'cpp'])
+	defs += ['-DABC_USE_PTHREADS']
 	dependencies += [ dependency('threads') ]
 endif
 
 if get_option('use_cudd')
-	add_project_arguments(
-		'-DABC_USE_CUDD',
-		language: ['c', 'cpp'])
+	defs += ['-DABC_USE_CUDD']
 endif
 subdir('src')
