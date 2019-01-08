@@ -32,7 +32,7 @@ defs += [
 
 if get_option('namespace') != ''
 	add_project_arguments(
-		'-x', 'c++',
+		'-x', 'c++', '-std=c++03', '-fpermissive',
 		language: ['c', 'cpp'])
 	defs += ['-DABC_NAMESPACE=' + get_option('namespace')]
 endif

@@ -87,25 +87,25 @@ modules = [
 	'sat/satoko',
 	'sat/xsat',
 ]
-
 cudd_modules = [
+	'bdd/bbr',
+	'bdd/cas',
 	'bdd/cudd',
-	'bdd/extrab',
 	'bdd/dsd',
 	'bdd/epd',
+	'bdd/extrab',
+	'bdd/llb',
 	'bdd/mtr',
 	'bdd/reo',
-	'bdd/cas',
-	'bdd/bbr',
-	'bdd/llb'
 ]
+## ABOVE CODE IS AUTO GENERATED. DO NOT EDIT.
+## :marker:
 
 if get_option('use_cudd')
 	modules += cudd_modules
 endif
 
 sources = []
-main_sources = []
 
 foreach module : modules
 	subdir(module)
@@ -124,7 +124,7 @@ libabc_dep = declare_dependency(
 	dependencies: dependencies,
 	include_directories: include_directories('.', is_system: true))
 
-executable('abc', main_sources,
+executable('abc', 'base/main/main.c',
 	c_args: defs,
 	cpp_args: defs,
 	link_with: [libabc],

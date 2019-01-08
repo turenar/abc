@@ -6,6 +6,3 @@ sources += [
 	'base/main/libSupport.c',
 	'base/main/mainUtils.c',
 ]
-main_sources += [
-	'base/main/main.c',
-]
