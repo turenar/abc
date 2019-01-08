@@ -1,0 +1,15 @@
+sources += [
+	'map/amap/amapCore.c',
+	'map/amap/amapGraph.c',
+	'map/amap/amapLib.c',
+	'map/amap/amapLiberty.c',
+	'map/amap/amapMan.c',
+	'map/amap/amapMatch.c',
+	'map/amap/amapMerge.c',
+	'map/amap/amapOutput.c',
+	'map/amap/amapParse.c',
+	'map/amap/amapPerm.c',
+	'map/amap/amapRead.c',
+	'map/amap/amapRule.c',
+	'map/amap/amapUniq.c',
+]

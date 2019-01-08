@@ -1,0 +1,127 @@
+modules = [
+	'aig/aig',
+	'aig/gia',
+	'aig/hop',
+	'aig/ioa',
+	'aig/ivy',
+	'aig/miniaig',
+	'aig/saig',
+	'base/abc',
+	'base/abci',
+	'base/acb',
+	'base/bac',
+	'base/cba',
+	'base/cmd',
+	'base/exor',
+	'base/io',
+	'base/main',
+	'base/pla',
+	'base/test',
+	'base/ver',
+	'base/wlc',
+	'bool/bdc',
+	'bool/dec',
+	'bool/deco',
+	'bool/kit',
+	'bool/lucky',
+	'bool/rpo',
+	'bool/rsb',
+	'map/amap',
+	'map/cov',
+	'map/if',
+	'map/mapper',
+	'map/mio',
+	'map/mpm',
+	'map/scl',
+	'map/super',
+	'misc/bar',
+	'misc/bbl',
+	'misc/bzlib',
+	'misc/extra',
+	'misc/hash',
+	'misc/mem',
+	'misc/mvc',
+	'misc/nm',
+	'misc/parse',
+	'misc/st',
+	'misc/tim',
+	'misc/util',
+	'misc/vec',
+	'misc/zlib',
+	'opt/cgt',
+	'opt/csw',
+	'opt/cut',
+	'opt/dar',
+	'opt/dau',
+	'opt/dsc',
+	'opt/fret',
+	'opt/fxch',
+	'opt/fxu',
+	'opt/lpk',
+	'opt/mfs',
+	'opt/nwk',
+	'opt/res',
+	'opt/ret',
+	'opt/rwr',
+	'opt/rwt',
+	'opt/sbd',
+	'opt/sfm',
+	'opt/sim',
+	'proof/abs',
+	'proof/acec',
+	'proof/cec',
+	'proof/dch',
+	'proof/fra',
+	'proof/fraig',
+	'proof/int',
+	'proof/live',
+	'proof/pdr',
+	'proof/ssc',
+	'proof/ssw',
+	'sat/bmc',
+	'sat/bsat',
+	'sat/cnf',
+	'sat/csat',
+	'sat/msat',
+	'sat/psat',
+	'sat/satoko',
+	'sat/xsat',
+]
+
+cudd_modules = [
+	'bdd/cudd',
+	'bdd/extrab',
+	'bdd/dsd',
+	'bdd/epd',
+	'bdd/mtr',
+	'bdd/reo',
+	'bdd/cas',
+	'bdd/bbr',
+	'bdd/llb'
+]
+
+if get_option('use_cudd')
+	modules += cudd_modules
+endif
+
+sources = []
+main_sources = []
+
+foreach module : modules
+	subdir(module)
+endforeach
+
+src_inc = include_directories('.')
+
+libabc = library('abc', sources,
+	dependencies: dependencies,
+	include_directories: src_inc)
+libabc_dep = declare_dependency(
+	link_with: [libabc],
+	dependencies: dependencies,
+	include_directories: include_directories('.', is_system: true))
+
+executable('abc', main_sources,
+	link_with: [libabc],
+	dependencies: dependencies,
+	include_directories: src_inc)

@@ -1,0 +1,17 @@
+sources += [
+	'base/bac/bacBlast.c',
+	'base/bac/bacBac.c',
+	'base/bac/bacCom.c',
+	'base/bac/bacLib.c',
+	'base/bac/bacNtk.c',
+	'base/bac/bacPrsBuild.c',
+	'base/bac/bacPrsTrans.c',
+	'base/bac/bacPtr.c',
+	'base/bac/bacPtrAbc.c',
+	'base/bac/bacReadBlif.c',
+	'base/bac/bacReadSmt.c',
+	'base/bac/bacReadVer.c',
+	'base/bac/bacWriteBlif.c',
+	'base/bac/bacWriteSmt.c',
+	'base/bac/bacWriteVer.c',
+]

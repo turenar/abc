@@ -1,0 +1,16 @@
+sources += [
+	'sat/bsat/satMem.c',
+	'sat/bsat/satInter.c',
+	'sat/bsat/satInterA.c',
+	'sat/bsat/satInterB.c',
+	'sat/bsat/satInterP.c',
+	'sat/bsat/satProof.c',
+	'sat/bsat/satSolver.c',
+	'sat/bsat/satSolver2.c',
+	'sat/bsat/satSolver2i.c',
+	'sat/bsat/satSolver3.c',
+	'sat/bsat/satStore.c',
+	'sat/bsat/satTrace.c',
+	'sat/bsat/satTruth.c',
+	'sat/bsat/satUtil.c',
+]
