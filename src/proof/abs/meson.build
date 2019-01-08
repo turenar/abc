@@ -1,0 +1,18 @@
+sources += [
+	'proof/abs/absDup.c',
+	'proof/abs/absGla.c',
+	'proof/abs/absGlaOld.c',
+	'proof/abs/absIter.c',
+	'proof/abs/absOldCex.c',
+	'proof/abs/absOldRef.c',
+	'proof/abs/absOldSat.c',
+	'proof/abs/absOldSim.c',
+	'proof/abs/absOut.c',
+	'proof/abs/absPth.c',
+	'proof/abs/absRef.c',
+	'proof/abs/absRefSelect.c',
+	'proof/abs/absRpm.c',
+	'proof/abs/absRpmOld.c',
+	'proof/abs/absVta.c',
+	'proof/abs/absUtil.c',
+]

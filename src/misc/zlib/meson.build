@@ -1,0 +1,17 @@
+sources += [
+	'misc/zlib/adler32.c',
+	'misc/zlib/compress_.c',
+	'misc/zlib/crc32.c',
+	'misc/zlib/deflate.c',
+	'misc/zlib/gzclose.c',
+	'misc/zlib/gzlib.c',
+	'misc/zlib/gzread.c',
+	'misc/zlib/gzwrite.c',
+	'misc/zlib/infback.c',
+	'misc/zlib/inffast.c',
+	'misc/zlib/inflate.c',
+	'misc/zlib/inftrees.c',
+	'misc/zlib/trees.c',
+	'misc/zlib/uncompr.c',
+	'misc/zlib/zutil.c',
+]

@@ -1,0 +1,17 @@
+sources += [
+	'proof/cec/cecCec.c',
+	'proof/cec/cecChoice.c',
+	'proof/cec/cecClass.c',
+	'proof/cec/cecCore.c',
+	'proof/cec/cecCorr.c',
+	'proof/cec/cecIso.c',
+	'proof/cec/cecMan.c',
+	'proof/cec/cecPat.c',
+	'proof/cec/cecSat.c',
+	'proof/cec/cecSatG.c',
+	'proof/cec/cecSeq.c',
+	'proof/cec/cecSolve.c',
+	'proof/cec/cecSplit.c',
+	'proof/cec/cecSynth.c',
+	'proof/cec/cecSweep.c',
+]

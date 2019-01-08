@@ -1,0 +1,15 @@
+sources += [
+	'map/fpga/fpga.c',
+	'map/fpga/fpgaCore.c',
+	'map/fpga/fpgaCreate.c',
+	'map/fpga/fpgaCut.c',
+	'map/fpga/fpgaCutUtils.c',
+	'map/fpga/fpgaFanout.c',
+	'map/fpga/fpgaLib.c',
+	'map/fpga/fpgaMatch.c',
+	'map/fpga/fpgaSwitch.c',
+	'map/fpga/fpgaTime.c',
+	'map/fpga/fpgaTruth.c',
+	'map/fpga/fpgaUtils.c',
+	'map/fpga/fpgaVec.c',
+]

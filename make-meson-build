@@ -1,0 +1,39 @@
+#!/bin/bash -eu
+
+cd "$(dirname "$0")"
+
+for i in $(find -name module.make); do
+	sed -e 's/ /\n/g' <$i \
+		| sed -e 's@^.*\(src/[^.]*\.\(cpp\|c\)\).*$@\1@' -e '/^[^s]/d' -e '/^$/d' -e "s/^src\//\\t'/" -e "s/$/',/" \
+		| sed -e '1i sources += [' -e '$a ]' \
+		> $(dirname $i)/meson.build
+done
+
+exec 5<Makefile
+while read line <&5; do
+	if [[ $line == MODULES\ :=* ]]; then
+		modules_str="${line#MODULES\ :=}"
+	elif [[ $line == MODULES\ \+=* ]]; then
+		cudd_modules_str="${line#*MODULES\ +=}"
+	fi
+done
+
+exec 5<src/meson.build
+rm src/meson.build
+exec 6>src/meson.build
+
+modules=( $(echo "${modules_str}" | sed -e 's/\$([^)]*)//' -e 's/ /\n/g' | sort) )
+cudd_modules=( $(echo "${cudd_modules_str}" | sed -e 's/ /\n/g' | sort) )
+
+echo "modules = [" >&6
+for i in "${modules[@]}"; do
+	echo "	'${i#src/}'," >&6
+done
+echo "]" >&6
+echo "cudd_modules = [" >&6
+for i in "${cudd_modules[@]}"; do
+	echo "	'${i#src/}'," >&6
+done
+echo "]" >&6
+echo "## ABOVE CODE IS AUTO GENERATED. DO NOT EDIT." >&6
+sed -n -e '/:marker:/,$p' <&5 >&6

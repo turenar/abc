@@ -1,0 +1,16 @@
+sources += [
+	'opt/nwk/nwkAig.c',
+	'opt/nwk/nwkCheck.c',
+	'opt/nwk/nwkBidec.c',
+	'opt/nwk/nwkDfs.c',
+	'opt/nwk/nwkFanio.c',
+	'opt/nwk/nwkFlow.c',
+	'opt/nwk/nwkMan.c',
+	'opt/nwk/nwkMap.c',
+	'opt/nwk/nwkMerge.c',
+	'opt/nwk/nwkObj.c',
+	'opt/nwk/nwkSpeedup.c',
+	'opt/nwk/nwkStrash.c',
+	'opt/nwk/nwkTiming.c',
+	'opt/nwk/nwkUtil.c',
+]

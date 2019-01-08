@@ -1,0 +1,15 @@
+sources += [
+	'sat/msat/msatActivity.c',
+	'sat/msat/msatClause.c',
+	'sat/msat/msatClauseVec.c',
+	'sat/msat/msatMem.c',
+	'sat/msat/msatOrderH.c',
+	'sat/msat/msatQueue.c',
+	'sat/msat/msatRead.c',
+	'sat/msat/msatSolverApi.c',
+	'sat/msat/msatSolverCore.c',
+	'sat/msat/msatSolverIo.c',
+	'sat/msat/msatSolverSearch.c',
+	'sat/msat/msatSort.c',
+	'sat/msat/msatVec.c',
+]

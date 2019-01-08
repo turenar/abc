@@ -1,0 +1,4 @@
+option('namespace', type: 'string', value: '')
+option('use_cudd', type: 'boolean', value: true)
+option('readline', type: 'boolean', value: true)
+option('pthreads', type: 'boolean', value: true)
