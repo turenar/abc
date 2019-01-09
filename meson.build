@@ -34,6 +34,7 @@ if get_option('namespace') != ''
 	add_project_arguments(
 		'-x', 'c++', '-std=c++03', '-fpermissive',
 		language: ['c', 'cpp'])
+	dependencies += [cxx_compiler.find_library('stdc++')]
 	defs += ['-DABC_NAMESPACE=' + get_option('namespace')]
 endif
 
