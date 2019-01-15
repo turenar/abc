@@ -255,13 +255,19 @@ void Nm_ManProfile( Nm_Man_t * p )
 ***********************************************************************/
 void Nm_ManResize( Nm_Man_t * p )
 {
+  Nm_ManPrealloc(p, p->nGrowthFactor * p->nBins);
+}
+
+void Nm_ManPrealloc( Nm_Man_t* p, unsigned int Size )
+{
     Nm_Entry_t ** pBinsNewI2N, ** pBinsNewN2I, * pEntry, * pEntry2, ** ppSpot;
     int nBinsNew, Counter, e;
     abctime clk;
 
 clk = Abc_Clock();
+
     // get the new table size
-    nBinsNew = Abc_PrimeCudd( p->nGrowthFactor * p->nBins ); 
+    nBinsNew = Abc_PrimeCudd( Size );
     // allocate a new array
     pBinsNewI2N = ABC_ALLOC( Nm_Entry_t *, nBinsNew );
     pBinsNewN2I = ABC_ALLOC( Nm_Entry_t *, nBinsNew );
